@@ -32,6 +32,7 @@
                     </div>
 
                     <input type="submit" class="btn btn-primary btn-block mb-4" value="Añadir cookie" name ="crearCookie"></button>
+                    <input type="submit" class="btn btn-primary btn-block mb-4" value="Borrar cookie" name ="borrarCookie"></button>
 
                    <!-- <a href="register.php" class="btn btn-secondary btn-block mb-4"  role="button"
                         aria-disabled="true">Regístrese aquí</a>-->
@@ -52,8 +53,15 @@
         function crearCookie($cookieValue,$cookieName,$cookieTime){
             setcookie($cookieName, $cookieValue, time() +$cookieTime);
         }
+        function borrarCookie($cookieName)
+        {
+            setcookie($cookieName, false, time() -3600);
+        }
         if (isset($_POST["crearCookie"])) {
                 crearCookie($cookieValue,$cookieName,$cookieTime);
+            }
+        if (isset($_POST["borrarCookie"])) {
+                borrarCookie($cookieName);
             }
         
         ?>
