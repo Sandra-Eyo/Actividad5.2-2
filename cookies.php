@@ -26,8 +26,8 @@
 
                     </div>
                     <div class="form-group mb-4">
-                        <label class="form-label" for="cookieSeconds">Cookie expiration seconds</label>
-                        <input type="number" id="cookieSeconds" class="form-control" name="cookieSeconds" value ="0" min="0"  />
+                        <label class="form-label" for="cookieTime">Cookie expiration seconds</label>
+                        <input type="number" id="cookieTime" class="form-control" name="cookieTime" value ="0" min="0"  />
 
                     </div>
 
@@ -41,14 +41,21 @@
             </div>
         </div>
         <?php
-        if (isset($_POST["crearCookie"])) {
-            if (isset($_POST["cookieName"]) && ($_POST["cookieValue"]) && $_POST["cookieSeconds"]) {
-                $cookieValue = $_POST["cookieValue"];
-                $cookieName = $_POST["cookieName"];
-                $cookieSeconds = $_POST["cookieSeconds"];
-                setcookie($cookieName, $cookieValue, time() +$cookieSeconds);
-            }
+        // Cogemos los valores del formulario y los guardamos en variables
+        if (isset($_POST["cookieName"]) && ($_POST["cookieValue"])) {
+            $cookieValue = $_POST["cookieValue"];
+            $cookieName = $_POST["cookieName"];
+            $cookieTime = $_POST["cookieTime"];
+            if ($cookieTime == null) {
+                $cookieTime = 0;}
         }
+        function crearCookie($cookieValue,$cookieName,$cookieTime){
+            setcookie($cookieName, $cookieValue, time() +$cookieTime);
+        }
+        if (isset($_POST["crearCookie"])) {
+                crearCookie($cookieValue,$cookieName,$cookieTime);
+            }
+        
         ?>
         
 </body>
