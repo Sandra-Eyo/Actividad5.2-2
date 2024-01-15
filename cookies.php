@@ -33,16 +33,24 @@
                     
                     <input type="submit" class="btn btn-primary btn-block mb-4" value="Añadir cookie" name ="crearCookie"></button>
 
-                    <!-- 
-                    boton(borrar) solo se muestra si existen cookies, coger el contador de cookies  y poner un condicional: si contador >1 que se muestre boton borrar
-                     if (isset($_COOKIE[$cookieName])) {
-                     $visitas++; 
-                    if($visitas > 1){
-                    echo"<input type=\"submit\" class=\"btn btn-primary btn-block mb-4\" value=\"Borrar cookie\" name =\"borrarCookie\"></button>";
-                    } 
-                    -->
+                   
+                   <!--  boton(borrar) solo se muestra si existen cookies, coger el contador de cookies  y poner un condicional: si contador >1 que se muestre boton borrar-->
+                        
+                   <?php
+                   //esto no funciona xDD
+                   if (isset($_POST["cookieName"])) {
+                    $cookieName = $_POST["cookieName"];
+                   if (isset($_COOKIE[$cookieName])) {
+                       $visitas = $_COOKIE[$cookieName];
+                       $visitas++;
+                       if ($visitas > 0) {
+                        echo "<input type=\"submit\" class=\"btn btn-primary btn-block mb-4\" value=\"Borrar cookie\" name =\"borrarCookie\"></button>";
+                       }
+                   } 
+                }
+                    ?>
                 
-                    <input type="submit" class="btn btn-primary btn-block mb-4" value="Borrar cookie" name ="borrarCookie"></button>
+                   <input type="submit" class="btn btn-primary btn-block mb-4" value="Borrar cookie" name ="borrarCookie"></button>
 
                 </form>
 
