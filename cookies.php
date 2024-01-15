@@ -40,8 +40,16 @@
 
             </div>
         </div>
-        <?php 
-        
+        <?php
+        if (isset($_POST["crearCookie"])) {
+            if (isset($_POST["cookieName"]) && ($_POST["cookieValue"]) && $_POST["cookieSeconds"]) {
+                $cookieValue = $_POST["cookieValue"];
+                $cookieName = $_POST["cookieName"];
+                $cookieSeconds = $_POST["cookieSeconds"];
+                setcookie($cookieName, $cookieValue, time() + $cookieSeconds);
+            }
+        }
+        ?>
         ?>
 </body>
 </html>
