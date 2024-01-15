@@ -46,10 +46,10 @@
                 $cookieValue = $_POST["cookieValue"];
                 $cookieName = $_POST["cookieName"];
                 $cookieSeconds = $_POST["cookieSeconds"];
-                setcookie($cookieName, $cookieValue, time() + $cookieSeconds);
+                setcookie($cookieName, $cookieValue, time() +$cookieSeconds);
             }
         }
         ?>
-        ?>
+        
 </body>
 </html>
