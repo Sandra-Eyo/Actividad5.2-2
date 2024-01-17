@@ -23,8 +23,8 @@
                 echo "<tr><td>$nombre</td><td>$valor</td></tr>";
             }
             echo "</table>";
-            echo "<form method='post' action='cookies-prueba.php'>";
-            echo "<input type='submit' name='borrar_cookies' value='Borrar Cookies'>";
+            echo "<form method='post' action='cookies.php'>";
+            echo "<input type='submit' name='borrarCookies' value='Borrar Cookies'>";
             echo "</form>";
         } else {
             echo "<p>No hay cookies creadas.</p>";
