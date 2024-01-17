@@ -65,8 +65,8 @@
                 crearCookie($cookieValue,$cookieName,$cookieTime);
             }
         if (isset($_POST["borrarCookie"]) && ($_POST["cookieName"])) {
-                borrarCookie( $cookieName );
-                unset($_COOKIE[$cookieName]);
+                borrarCookie($_POST["cookieName"] );
+                unset($_COOKIE[$_POST["cookieName"]]);
             }
         //Mostramos la tabla de cookies
         mostrarTablaCookies();
