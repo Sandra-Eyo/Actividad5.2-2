@@ -32,7 +32,7 @@
     }
 
 
-    if (isset($_POST['borrar_cookies'])) {
+    if (isset($_POST['borrarCookies'])) {
         foreach ($_COOKIE as $key => $value) {
             setcookie($key, '', time() - 1);
         }
