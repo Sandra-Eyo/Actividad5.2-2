@@ -15,7 +15,7 @@
 //var_dump($_COOKIE);
 
     function mostrarTablaCookies() {
-        if (!empty($_COOKIE) && !isset($_POST['borrar_cookies'])) {
+        if (!empty($_COOKIE) && !isset($_POST['borrarCookies'])) {
             echo "<h3>Cookies creadas:</h3>";
             echo "<table class='table table-striped'>";
             echo "<tr><th>Nombre</th><th>Valor</th></tr>";
