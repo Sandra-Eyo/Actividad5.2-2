@@ -24,7 +24,7 @@
             }
             echo "</table>";
             echo "<form method='post' action='cookies.php'>";
-            echo "<input type='submit' name='borrarCookies' value='Borrar Cookies'>";
+            echo "<input type='submit' class='btn btn-danger btn-block mb-4' name='borrarCookies' value='Borrar Cookies'>";
             echo "</form>";
         } else {
             echo "<p>No hay cookies creadas.</p>";

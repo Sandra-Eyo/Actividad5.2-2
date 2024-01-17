@@ -34,9 +34,9 @@
                     <input type="submit" class="btn btn-primary btn-block mb-4" value="Añadir cookie" name ="crearCookie"></button>
                     <?php
                     // Mostrar el botón de borrar solo si existen cookies
-                    if (isset($_POST["cookieName"]) && isset($_COOKIE[$_POST["cookieName"]])) {
-                        echo '<input type="submit" class="btn btn-danger btn-block mb-4" value="Borrar cookie" name="borrarCookie">';
-                    }
+                   // if (isset($_POST["cookieName"]) && isset($_COOKIE[$_POST["cookieName"]])) {
+                   //     echo '<input type="submit" class="btn btn-danger btn-block mb-4" value="Borrar cookie" name="borrarCookie">';
+                    //}
                     ?>
                 </form>
             </div>
@@ -49,12 +49,16 @@
             $cookieValue = $_POST["cookieValue"];
             $cookieName = $_POST["cookieName"];
             $cookieTime = $_POST["cookieTime"];
-            if ($cookieTime == null) {
-                $cookieTime = 0;}
+            if ($cookieTime = null) {
+                $cookieTime == 0;}
         }
         // funciones para crear y borrar cookies
         function crearCookie($cookieValue,$cookieName,$cookieTime){
-            setcookie($cookieName, $cookieValue, time() +$cookieTime);
+            if ($cookieTime == 0 ) {
+                setcookie($cookieName, $cookieValue, 0);
+            } else {
+                setcookie($cookieName, $cookieValue, time() +$cookieTime);
+            }
         }
         function borrarCookie($cookieName)
         {
@@ -63,6 +67,9 @@
         //Operaciones Crear o Borrar cookie
         if (isset($_POST["crearCookie"])) {
                 crearCookie($cookieValue,$cookieName,$cookieTime);
+                 // Redireccionar para que se actualice la página y se muestre la tabla
+                header("Location: cookies.php");
+                exit();
             }
         if (isset($_POST["borrarCookie"]) && ($_POST["cookieName"])) {
                 borrarCookie($_POST["cookieName"] );
